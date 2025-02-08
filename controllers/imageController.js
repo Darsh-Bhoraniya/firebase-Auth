@@ -44,11 +44,11 @@ const uploadImage = async (req, res) => {
                 message: 'File uploaded and data saved successfully',
                 url: req.file.path,
                 uniqueId: uniqueId,
-                imageData: imageData, // Return the image data
+                imageData: imageData,
             });
         } catch (firebaseError) {
             console.error('Error saving image data to Firestore:', firebaseError.message);
-            return res.status(500).json({ message: 'Error saving image data to Firestore', error: firebaseError.message });
+            return res.status(500).json({ message: 'Error saasdsadving image data to Firestore', error: firebaseError.message });
         }
     });
 };
