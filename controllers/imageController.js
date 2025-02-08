@@ -26,7 +26,7 @@ const uploadImage = async (req, res) => {
             console.error('No file uploaded');
             return res.status(400).json({ message: 'No file uploaded' });
         }
-
+        // Genrate uuid 
         const uniqueId = uuidv4();
 
         const imageData = {
@@ -35,7 +35,6 @@ const uploadImage = async (req, res) => {
             name: req.file.originalname,
             uploadedAt: Date.now(),
         };
-
         try {
             await db.collection('images_data').doc(uniqueId).set(imageData);
             console.log('Image data saved to Firestore:', imageData);
